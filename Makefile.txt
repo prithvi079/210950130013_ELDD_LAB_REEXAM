@@ -4,7 +4,11 @@ PWD:=$(shell pwd)
 
 default:
 	$(MAKE) -C $(KD) M=$(PWD) modules
-	gcc -o app app.c
+	gcc -o chardriver_Application chardriver_Application.c
+	
 clean:
-	$(MAKE) -C $(KD) M=$(PWD) modules clean
-	rm app
+	$(MAKE) -C $(KD) M=$(PWD) clean
+	rm chardriver_Application
+
+install:
+	$(MAKE) -C $(KD) M=$(PWD) modules_install
